@@ -1,0 +1,16 @@
+{
+    "name": "the-villa-app",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "vercel dev"
+    },
+    "dependencies": {
+        "@supabase/supabase-js": "^2.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "typescript": "^5.0.0",
+        "vercel": "^46.0.2"
+    }
+}
