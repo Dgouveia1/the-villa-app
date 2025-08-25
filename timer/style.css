@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000000; /* Fundo preto */
+    font-family: 'Arial', sans-serif;
+    color: white;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column; /* Alinha o timer e a notificação verticalmente */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+}
+
+#clock-display {
+    font-size: 8rem;
+    font-weight: bold;
+    color: #D5A737; /* Cor dourada */
+    text-shadow: 0 0 15px rgba(213, 167, 55, 0.7);
+}
+
+#notification-area {
+    min-height: 60px; /* Espaço para a notificação com imagem */
+    z-index: 100;
+}
+
+/* Estilo do card de notificação principal */
+.notification-card {
+    display: flex; /* Para alinhar imagem e texto */
+    align-items: center;
+    gap: 15px; /* Espaço entre imagem e texto */
+    padding: 15px 25px;
+    background: rgba(40, 40, 40, 0.8);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.2rem;
+    color: #3CBC22;
+    opacity: 0;
+    animation: fallDown 0.5s ease-out forwards;
+}
+
+.notification-card.sliding-out {
+    animation: slideOut 0.5s ease-in forwards;
+}
+
+/* Estilo para a imagem de perfil */
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #D5A737;
+    object-fit: cover; /* Garante que a imagem preencha o círculo */
+}
+
+/* Container do histórico no canto DIREITO */
+#history-container {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    bottom: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 50;
+    overflow-y: auto;
+}
+
+/* Estilo do card de notificação no histórico */
+.history-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    background: rgba(20, 20, 20, 0.7);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #cccccc;
+    animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+/* Imagem de perfil no histórico, um pouco menor */
+.history-card .profile-pic {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #D5A737;
+}
+
+/* --- Animações --- */
+@keyframes fallDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(200px);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
